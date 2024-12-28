@@ -1,0 +1,35 @@
+//特点：优化
+//常规：时间复杂度为O（2N）
+//样例：时间复杂度O（N）
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+
+template<typename T>
+int MaxValueTime(vector<T>& array)
+{
+	if (array.size() == 0)
+	{
+		cout << "数组数据为空" << endl;
+		return;
+	}
+	int count = 1;
+	T Max = array[0];
+	//由于不清楚数据类型，因此无法确定数组的最小值
+    //无法初始化int Max = INT_MIN;
+	
+	for (int i = 1; i < array.size(); i++)
+	{
+		if (array[i] == Max)
+		{
+			count++;
+		}
+		else if (array[i] > Max)
+		{
+			Max = array[i];
+			count = 1;
+		}
+	}
+	return count;
+}

@@ -1,0 +1,19 @@
+特点：优化
+常规：O(N)
+样例：O(根号n)
+template<typename T>
+size_t FactorNumber(T num)
+{
+	size_t count = 0;
+	for (int i = 1; i <= sqrt(num); i++)
+	{
+		if (num % i == 0)
+		{
+			if (i != sqrt(num))//二者不相等说明i不是中间数
+				count += 2;
+			else
+				count++;
+		}
+	}
+	return count;
+}

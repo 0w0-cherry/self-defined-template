@@ -1,0 +1,13 @@
+特点：优化
+常规：时间复杂度O（N）
+样例：时间复杂度O（log（min（a，b）））
+template<typename T>
+T CommonFactor(T a,T b)
+{
+	while (r = a % b)
+	{
+		a = b;
+		b = r;
+	}
+	return b;
+}

@@ -1,0 +1,48 @@
+//void qsort(void* base, //待排序数据的起始位置
+//	       size_t num, //待排序数据的元素个数
+//	       size_t size,//待排序数据的每个元素的大小
+//	       int (*compar)(const void*, const void*));
+//         //函数指针 - 指针指向的函数是用来比较待排序数据中两个元素的大小关系的
+//qsort函数是库函数，直接可以使用
+//qsort可以排序任意类型的数据，内部使用的是快速排序的方法
+
+
+int CmpInt(const void* e1, const void* e2)
+{
+	return *(int*)e1 - *(int*)e2;
+}
+int CmpAge(const void* e1, const void* e2)
+{
+	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;//强制类型转换的优先级低于 ->
+}
+int CmpName(const void* e1, const void* e2)
+{
+	return strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);//强制类型转换的优先级低于 ->
+}
+void Swap(char* e1, char* e2,int width)
+{
+	for (int i = 0; i < width; i++)
+	{
+		char tmp = e1[i];
+		e1[i] = e2[i];
+		e2[i] = tmp;
+
+	}
+}
+void BubbleSort(void* base, int sz,int width,int (*compar)(const void* e1,const void* e2))
+{
+	for (int i = 0; i <= sz - 2; i++)
+	{
+		for (int j = 0; j <= sz - 2 - i; j++)
+		{
+			//if (arr[j] > arr[j + 1])
+			if(compar((char*)base+j*width,(char*)base+(j+1)*width)>0 )
+			{
+				//int tmp = arr[j];
+				//arr[j] = arr[j + 1];
+				//arr[j + 1] = tmp;
+				Swap( (char*)base + j * width, (char*)base + (j + 1) * width,width);
+			}
+		}
+	}
+}

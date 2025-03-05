@@ -12,6 +12,7 @@ void my_strcpy(char* dest, char* src)
 }
 
 //版本2
+#include<assert.h>
 void my_strcpy(char* dest,const char* src)
 {
     assert(dest && src);
@@ -19,4 +20,18 @@ void my_strcpy(char* dest,const char* src)
     {
         ;
     }
+}
+
+
+//版本3
+#include<assert.h>
+char* my_strcpy(char* dest, char* src)
+{
+    char* ret = dest;
+    assert(dest && src);
+    while (*dest++ = *src++)
+    {
+        ;
+    }
+    return ret;//目标空间的起始地址返回
 }

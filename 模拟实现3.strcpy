@@ -1,0 +1,22 @@
+//版本1
+void my_strcpy(char* dest, char* src)
+{
+    while (*src != '\0')
+    {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+    //拷贝 \0
+    *dest = *src;
+}
+
+//版本2
+void my_strcpy(char* dest, char* src)
+{
+    assert(dest && src);
+    while (*dest++ = *src++)
+    {
+        ;
+    }
+}

@@ -12,7 +12,7 @@ void my_strcpy(char* dest, char* src)
 }
 
 //版本2
-void my_strcpy(char* dest, char* src)
+void my_strcpy(char* dest,const char* src)
 {
     assert(dest && src);
     while (*dest++ = *src++)

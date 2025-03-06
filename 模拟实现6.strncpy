@@ -1,0 +1,14 @@
+#include<assert.h>
+char* my_strncpy(char* s1, const char* s2,size_t n)
+{
+	assert(s1 && s2);
+	char* ret = s1;
+	while (n-->0)
+	{
+		if (*s2 != '\0')
+			*s1++ = *s2++;
+		else
+			*s1++ = '\0';
+	}
+	return ret;
+}

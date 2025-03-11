@@ -1,0 +1,16 @@
+void* memcpy(void* destination, const void* source, size_t num)
+{
+	void* ret = destination;
+	assert(destination && source);
+	while (num--)
+	{
+		*(char*)destination = *(char*)source;
+		destination = (char*)destination+1;
+		source = (char*)source + 1;
+
+		//部分编译器可行
+		//++(char*)destination;
+		//++(char*)source;
+	}
+	return ret;
+}

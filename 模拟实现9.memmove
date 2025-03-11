@@ -1,0 +1,25 @@
+#include<assert.h>
+void* memmove(void* destnation, const void* source, size_t n)
+{
+	assert(destnation && source);
+	char* dest = (char*)destnation;
+	const char* src = (const char*)source;
+
+	//后->前
+	if (dest > src)
+	{
+		while (n--)
+		{
+			dest[n] = src[n];
+		}
+	}
+	//前->后
+	else
+	{
+		while (n--)
+		{
+			*dest++ = *src++;
+		}
+	}
+	return destnation;
+}
